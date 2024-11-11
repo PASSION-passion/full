@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义照片生成器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+        #customImage {
+            margin-top: 20px;
+            width: 300px;
+            height: 300px;
+            background-color: #f3f3f3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            font-size: 2em;
+            border: 2px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>自定义照片生成器</h1>
+    <p>请输入你的名字：</p>
+    <input type="text" id="nameInput" placeholder="请输入名字">
+    <button onclick="generateImage()">生成照片</button>
+
+    <div id="output"></div>
+    <div id="customImage"></div>
+
+    <script>
+        function generateImage() {
+            const name = document.getElementById("nameInput").value;
+            if (name.trim() === "") {
+                document.getElementById("output").innerText = "请输入有效的名字！";
+                return;
+            }
+
+            // 设置输出文字
+            document.getElementById("output").innerText = `你好，${name}！这是你的自定义照片：`;
+
+            // 在自定义图片区域显示名字
+            const customImageDiv = document.getElementById("customImage");
+            customImageDiv.innerText = name;  // 简单显示名字在图片区域
+
+            // 可以在这里添加更多自定义图片生成的逻辑
+        }
+    </script>
+</body>
+</html>
